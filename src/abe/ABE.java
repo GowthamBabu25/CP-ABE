@@ -76,13 +76,8 @@ public class ABE {
                                     test.setup(pubfile, mskfile);
                                     println("//end to setup");
                                     println("//start to enc");
-                                    long begin_enc = System.currentTimeMillis();
                                     test.enc(pubfile, policy, input, encfile);
-                                    long end_enc = System.currentTimeMillis();
                                     println("//end to enc");
-                                    long time = end_enc-begin_enc;
-                                    System.out.println();
-                                    System.out.println("Encryption Time: "+time +" milli seconds");
                                 }
                                 else {
                                     System.out.println("File does not exist.");
@@ -103,24 +98,14 @@ public class ABE {
                                     String a_support = scanner.nextLine();
                                     attr_str = "age:"+a_sn+" stdnt_major:"+a_uid+" unique_quality:"+a_cn+" "+" school_name:"+a_mail+" class_failures:"+a_fail+" school_support:"+a_support;
                                 println("//start to keygen");
-                                long begin_key = System.currentTimeMillis();
                                 test.keygen(pubfile, prvfile, mskfile, attr_str);
-                                long end_key = System.currentTimeMillis();
-                                long time_key = end_key-begin_key;
-                                System.out.println();
-                                System.out.println("Key Generation Time: "+time_key +" milli seconds");
                                 println("//end to keygen");
                                 System.out.print("Enter the filename: ");
                                 encfile = scanner.nextLine();
                                 File OutputFile = new File(encfile);
                                 if (OutputFile.exists()) {
                                     println("//start to dec");
-                                    long begin_dec = System.currentTimeMillis();
                                     test.dec(pubfile, prvfile, encfile, decfile);
-                                    long end_dec = System.currentTimeMillis();
-                                     long time = end_dec-begin_dec;
-                                    System.out.println();
-                                    System.out.println("Decryption Time: "+time +" milli seconds");
                                     println("//end to dec");
                                 } 
                                 else {
